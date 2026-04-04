@@ -257,7 +257,7 @@ const projects = [
   },
 ] as const;
 
-const stageSectionBackground = "#01030A";
+const stageSectionBackground = "#01030B";
 
 function FlagIcon({ flag, label }: { flag: string; label: string }) {
   return (
