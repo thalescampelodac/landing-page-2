@@ -664,7 +664,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="tecnologias" className="px-4 pb-4 sm:px-5 sm:pb-5">
+        <section
+          id="tecnologias"
+          className="px-4 pb-4 sm:px-5 sm:pb-5"
+          style={{ backgroundColor: stageSectionBackground }}
+        >
           <div
             className="rounded-[18px] border border-[#24364f] px-4 py-4 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset] sm:px-5 sm:py-5"
             style={{ backgroundColor: stageSectionBackground }}
@@ -710,7 +714,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="px-4 pb-4 sm:px-5 sm:pb-5">
+        <section
+          className="px-4 pb-4 sm:px-5 sm:pb-5"
+          style={{ backgroundColor: stageSectionBackground }}
+        >
           <div className="grid gap-3 md:grid-cols-2">
             <article
               id="sobre"
@@ -809,8 +816,16 @@ export default function Home() {
           </div>
         </section>
 
-        <footer className="px-4 pb-6 text-center text-sm text-white/50 sm:px-5">
-          {text.footer}
+        <footer
+          className="rounded-b-[24px] px-4 pb-6 text-center text-sm text-white/50 sm:px-5"
+          style={{ backgroundColor: stageSectionBackground }}
+        >
+          <div
+            className="rounded-[14px] px-4 py-3"
+            style={{ backgroundColor: stageSectionBackground }}
+          >
+            {text.footer}
+          </div>
         </footer>
       </div>
     </main>
