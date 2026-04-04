@@ -36,11 +36,14 @@ const copy = {
         "Outros projetos estão na esteira de produção e chegam em breve.",
       inProgress: "Em produção",
     },
+    technologies: {
+      eyebrow: "Tecnologias",
+      subtitle: "Ferramentas que uso para construir soluções modernas.",
+    },
     projectItems: {
       comprovou:
         "Plataforma que simplifica a validação de comprovantes, reduzindo fraudes e trazendo confiança para transações.",
-      rede:
-        "Plataforma colaborativa para conectar pessoas, compartilhar conhecimento e impulsionar redes.",
+      rede: "Plataforma colaborativa para conectar pessoas, compartilhar conhecimento e impulsionar redes.",
     },
   },
   EN: {
@@ -68,11 +71,14 @@ const copy = {
         "More projects are in production and will arrive soon.",
       inProgress: "In progress",
     },
+    technologies: {
+      eyebrow: "Technologies",
+      subtitle: "Tools I use to build modern solutions.",
+    },
     projectItems: {
       comprovou:
         "A platform that simplifies receipt validation, reducing fraud and bringing trust to transactions.",
-      rede:
-        "A collaborative platform to connect people, share knowledge, and strengthen networks.",
+      rede: "A collaborative platform to connect people, share knowledge, and strengthen networks.",
     },
   },
   ES: {
@@ -100,11 +106,14 @@ const copy = {
         "Otros proyectos están en producción y llegarán pronto.",
       inProgress: "En producción",
     },
+    technologies: {
+      eyebrow: "Tecnologías",
+      subtitle: "Herramientas que uso para construir soluciones modernas.",
+    },
     projectItems: {
       comprovou:
         "Plataforma que simplifica la validación de comprobantes, reduce fraudes y aporta confianza a las transacciones.",
-      rede:
-        "Plataforma colaborativa para conectar personas, compartir conocimiento e impulsar redes.",
+      rede: "Plataforma colaborativa para conectar personas, compartir conocimiento e impulsar redes.",
     },
   },
 } as const;
@@ -137,6 +146,39 @@ const socialLinks = [
   },
 ] as const;
 
+const technologies = [
+  {
+    id: "nextjs",
+    name: "Next.js",
+    icon: "nextjs",
+    href: "https://nextjs.org",
+  },
+  {
+    id: "tailwind",
+    name: "Tailwind",
+    icon: "tailwind",
+    href: "https://tailwindcss.com",
+  },
+  {
+    id: "github",
+    name: "GitHub",
+    icon: "github",
+    href: "https://github.com",
+  },
+  {
+    id: "supabase",
+    name: "Supabase",
+    icon: "supabase",
+    href: "https://supabase.com",
+  },
+  {
+    id: "vercel",
+    name: "Vercel",
+    icon: "vercel",
+    href: "https://vercel.com",
+  },
+] as const;
+
 const projects = [
   {
     id: "comprovou",
@@ -163,6 +205,8 @@ const projects = [
     border: "border-[#2c6d64]",
   },
 ] as const;
+
+const stageSectionBackground = "#01030A";
 
 function FlagIcon({ flag, label }: { flag: string; label: string }) {
   return (
@@ -215,6 +259,71 @@ function ProjectMark({ type }: { type: "check" | "loop" | "spark" }) {
       aria-hidden="true"
     >
       <path d="M12 2l2.4 7.1L22 12l-7.6 2.9L12 22l-2.4-7.1L2 12l7.6-2.9L12 2Z" />
+    </svg>
+  );
+}
+
+function TechnologyLogo({
+  type,
+}: {
+  type: "nextjs" | "tailwind" | "github" | "supabase" | "vercel";
+}) {
+  if (type === "nextjs") {
+    return (
+      <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black text-sm font-medium text-white">
+        N
+      </div>
+    );
+  }
+
+  if (type === "tailwind") {
+    return (
+      <svg
+        viewBox="0 0 24 24"
+        className="h-8 w-8 text-[#38BDF8]"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M12 7c-2.8 0-4.5 1.4-5.2 4.2.9-1.4 1.9-1.9 3-1.6.63.17 1.08.67 1.58 1.22.82.9 1.76 1.93 3.62 1.93 2.8 0 4.5-1.4 5.2-4.2-.9 1.4-1.9 1.9-3 1.6-.63-.17-1.08-.67-1.58-1.22C14.8 8.03 13.86 7 12 7Zm-5.2 5.8C4 12.8 2.3 14.2 1.6 17c.9-1.4 1.9-1.9 3-1.6.63.17 1.08.67 1.58 1.22.82.9 1.76 1.93 3.62 1.93 2.8 0 4.5-1.4 5.2-4.2-.9 1.4-1.9 1.9-3 1.6-.63-.17-1.08-.67-1.58-1.22-.82-.9-1.76-1.93-3.62-1.93Z" />
+      </svg>
+    );
+  }
+
+  if (type === "github") {
+    return (
+      <svg
+        viewBox="0 0 24 24"
+        className="h-8 w-8 text-white"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-1.9c-3.1.67-3.75-1.32-3.75-1.32-.51-1.28-1.24-1.62-1.24-1.62-1.01-.68.08-.67.08-.67 1.12.08 1.7 1.15 1.7 1.15.99 1.7 2.6 1.2 3.24.91.1-.72.39-1.2.71-1.47-2.47-.28-5.07-1.24-5.07-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.41.11-2.95 0 0 .94-.3 3.08 1.14a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.14 3.08-1.14.61 1.54.23 2.67.11 2.95.72.78 1.15 1.78 1.15 3 0 4.29-2.61 5.24-5.1 5.52.4.34.76 1.02.76 2.05v3.04c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z" />
+      </svg>
+    );
+  }
+
+  if (type === "supabase") {
+    return (
+      <div className="flex h-[22px] w-[22px] items-center justify-center">
+        <Image
+          src="/images/brand/supabase-logo-icon.svg"
+          alt="Supabase"
+          width={22}
+          height={22}
+          className="h-[22px] w-[22px] object-contain"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-8 w-8 text-white"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12 3 21 19H3L12 3Z" />
     </svg>
   );
 }
@@ -386,8 +495,15 @@ export default function Home() {
           </div>
         </div>
 
-        <section id="projetos" className="px-4 pb-4 pt-3 sm:px-5 sm:pb-5">
-          <div className="rounded-[18px] border border-[#24364f] bg-[linear-gradient(180deg,rgba(5,10,18,0.88),rgba(4,8,14,0.9))] px-4 py-4 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset] sm:px-5 sm:py-5">
+        <section
+          id="projetos"
+          className="px-4 pb-4 pt-0 sm:px-5 sm:pb-5"
+          style={{ marginTop: "2px" }}
+        >
+          <div
+            className="rounded-[18px] border border-[#24364f] px-4 py-4 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset] sm:px-5 sm:py-5"
+            style={{ backgroundColor: stageSectionBackground }}
+          >
             <div className="text-center">
               <div className="flex items-center justify-center gap-2">
                 <ProjectMark type="spark" />
@@ -404,7 +520,8 @@ export default function Home() {
               {projects.map((project) => (
                 <article
                   key={project.id}
-                  className={`grid gap-4 rounded-[16px] border ${project.border} bg-[linear-gradient(180deg,rgba(7,12,20,0.96),rgba(6,10,18,0.96))] p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.03)_inset]`}
+                  className={`grid gap-4 rounded-[16px] border ${project.border} p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.03)_inset]`}
+                  style={{ backgroundColor: stageSectionBackground }}
                 >
                   <div>
                     <div className="flex items-center gap-2.5">
@@ -431,7 +548,10 @@ export default function Home() {
                     </a>
                   </div>
 
-                  <div className="relative h-[150px] overflow-hidden rounded-[10px] border border-white/10 bg-[#0b111b]">
+                  <div
+                    className="relative h-[150px] overflow-hidden rounded-[10px] border border-white/10"
+                    style={{ backgroundColor: stageSectionBackground }}
+                  >
                     <Image
                       src={project.images[projectSlides[project.id] ?? 0]}
                       alt={project.name}
@@ -463,7 +583,10 @@ export default function Home() {
                 </article>
               ))}
 
-              <article className="grid gap-4 rounded-[16px] border border-dashed border-[#2b4460] bg-[linear-gradient(180deg,rgba(6,10,18,0.82),rgba(5,9,16,0.82))] p-4 md:col-span-2 md:grid-cols-[1.2fr_180px] md:items-center">
+              <article
+                className="grid gap-4 rounded-[16px] border border-dashed border-[#2b4460] p-4 md:col-span-2 md:grid-cols-[1.2fr_180px] md:items-center"
+                style={{ backgroundColor: stageSectionBackground }}
+              >
                 <div>
                   <div className="flex items-center gap-2.5">
                     <ProjectMark type="spark" />
@@ -477,12 +600,61 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="flex h-[120px] items-center justify-center rounded-[10px] border border-dashed border-[#2b4460] bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.16),rgba(4,8,14,0.05)_65%)]">
+                <div
+                  className="flex h-[120px] items-center justify-center rounded-[10px] border border-dashed border-[#2b4460]"
+                  style={{ backgroundColor: stageSectionBackground }}
+                >
                   <span className="display-font text-sm uppercase tracking-[0.28em] text-white/45">
                     {text.projects.inProgress}
                   </span>
                 </div>
               </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="tecnologias" className="px-4 pb-4 sm:px-5 sm:pb-5">
+          <div
+            className="rounded-[18px] border border-[#24364f] px-4 py-4 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset] sm:px-5 sm:py-5"
+            style={{ backgroundColor: stageSectionBackground }}
+          >
+            <div className="text-center">
+              <div className="flex items-center justify-center gap-2">
+                <ProjectMark type="spark" />
+                <h2 className="display-font text-[18px] uppercase tracking-[0.12em] text-white sm:text-[20px]">
+                  {text.technologies.eyebrow}
+                </h2>
+              </div>
+              <p className="mt-1 text-sm text-white/65">
+                {text.technologies.subtitle}
+              </p>
+            </div>
+
+            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+              {technologies.map((technology) => (
+                <a
+                  key={technology.id}
+                  href={technology.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="flex items-center gap-3 rounded-[12px] border border-[#2c4260] px-4 py-3 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset]"
+                  style={{ backgroundColor: stageSectionBackground }}
+                >
+                  <TechnologyLogo
+                    type={
+                      technology.icon as
+                        | "nextjs"
+                        | "tailwind"
+                        | "github"
+                        | "supabase"
+                        | "vercel"
+                    }
+                  />
+                  <span className="text-[17px] font-medium text-white">
+                    {technology.name}
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
         </section>
