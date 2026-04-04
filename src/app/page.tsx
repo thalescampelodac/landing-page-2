@@ -5,9 +5,91 @@ import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 const languages = [
-  { code: "PT", label: "Portugues", flag: "/images/flags/br.svg" },
+  { code: "PT", label: "Português", flag: "/images/flags/br.svg" },
   { code: "EN", label: "English", flag: "/images/flags/us.svg" },
-  { code: "ES", label: "Espanol", flag: "/images/flags/es.svg" },
+  { code: "ES", label: "Español", flag: "/images/flags/es.svg" },
+] as const;
+
+const copy = {
+  PT: {
+    nav: {
+      about: "Sobre",
+      projects: "Projetos",
+      technologies: "Tecnologias",
+      contact: "Contato",
+    },
+    badge: "Analista de Sistemas",
+    hero: {
+      firstName: "Thales",
+      lastName: "Campelo",
+      title:
+        "Especialista em Soluções de Software e Arquitetura de Produtos Digitais",
+      description:
+        "Transformo ideias em sistemas robustos, escaláveis e inteligentes. Da engenharia de requisitos à arquitetura, do banco de dados ao deploy.",
+    },
+  },
+  EN: {
+    nav: {
+      about: "About",
+      projects: "Projects",
+      technologies: "Technologies",
+      contact: "Contact",
+    },
+    badge: "Systems Analyst",
+    hero: {
+      firstName: "Thales",
+      lastName: "Campelo",
+      title:
+        "Specialist in Software Solutions and Digital Product Architecture",
+      description:
+        "I turn ideas into robust, scalable, and intelligent systems. From requirements engineering to architecture, from database design to deployment.",
+    },
+  },
+  ES: {
+    nav: {
+      about: "Sobre",
+      projects: "Proyectos",
+      technologies: "Tecnologías",
+      contact: "Contacto",
+    },
+    badge: "Analista de Sistemas",
+    hero: {
+      firstName: "Thales",
+      lastName: "Campelo",
+      title:
+        "Especialista en Soluciones de Software y Arquitectura de Productos Digitales",
+      description:
+        "Transformo ideas en sistemas robustos, escalables e inteligentes. Desde la ingeniería de requisitos hasta la arquitectura, de la base de datos al despliegue.",
+    },
+  },
+} as const;
+
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/thalescampelo/",
+    icon: "/images/social/linkedin.png",
+  },
+  {
+    name: "GitHub",
+    href: "https://github.com/thalescampelodac",
+    icon: "/images/social/github.png",
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/thalescampeloc/",
+    icon: "/images/social/instagram.png",
+  },
+  {
+    name: "WhatsApp",
+    href: "https://wa.me/5532991594895",
+    icon: "/images/social/whatsapp.png",
+  },
+  {
+    name: "Email",
+    href: "mailto:thalescampelo@gmail.com",
+    icon: "/images/social/email.png",
+  },
 ] as const;
 
 function FlagIcon({ flag, label }: { flag: string; label: string }) {
@@ -23,6 +105,7 @@ export default function Home() {
   const [selectedLanguage, setSelectedLanguage] = useState<(typeof languages)[number]>(
     languages[0],
   );
+  const text = copy[selectedLanguage.code];
 
   return (
     <main className="page-shell min-h-screen px-3 py-4 text-white sm:px-5 sm:py-5">
@@ -55,19 +138,19 @@ export default function Home() {
 
               <nav className="flex items-center gap-2 text-sm text-white/90 sm:gap-3">
                 <a href="#sobre" className="px-2 py-1 hover:text-[#5aa7ff]">
-                  Sobre
+                  {text.nav.about}
                 </a>
                 <a href="#projetos" className="px-2 py-1 hover:text-[#5aa7ff]">
-                  Projetos
+                  {text.nav.projects}
                 </a>
                 <a
                   href="#tecnologias"
                   className="px-2 py-1 hover:text-[#5aa7ff]"
                 >
-                  Tecnologias
+                  {text.nav.technologies}
                 </a>
                 <a href="#contato" className="px-2 py-1 hover:text-[#5aa7ff]">
-                  Contato
+                  {text.nav.contact}
                 </a>
 
                 <div className="relative">
@@ -118,31 +201,52 @@ export default function Home() {
             <div className="mt-4 border-t border-[#22354f]" />
           </header>
 
-          <div className="absolute left-5 top-[90px] z-10">
+          <div className="absolute left-5 top-[112px] z-10">
             <div className="inline-flex items-center rounded-[9px] border border-[#2c4260] bg-[rgba(6,10,18,0.45)] px-3.5 py-1.5 text-[10px] font-medium uppercase tracking-[0.08em] text-[#58a6ff] shadow-[0_10px_30px_rgba(0,0,0,0.18)] sm:text-[11px]">
-              Analista de Sistemas
+              {text.badge}
             </div>
           </div>
 
-          <div className="absolute left-5 top-[138px] z-10">
+          <div className="absolute left-5 top-[160px] z-10">
             <h1 className="display-font text-[42px] font-semibold uppercase leading-[0.9] tracking-[-0.03em] text-white sm:text-[46px]">
-              <span className="block">Thales</span>
+              <span className="block">{text.hero.firstName}</span>
               <span className="block bg-[linear-gradient(180deg,#6eb4ff_0%,#3d7fff_100%)] bg-clip-text text-transparent">
-                Campelo
+                {text.hero.lastName}
               </span>
             </h1>
           </div>
 
-          <div className="absolute left-5 top-[235px] z-10 max-w-[380px]">
+          <div className="absolute left-5 top-[257px] z-10 max-w-[380px]">
             <p className="text-[17px] font-medium leading-[1.35] text-white sm:text-[18px]">
-              Especialista em Solucoes de Software e Arquitetura de Produtos
-              Digitais
+              {text.hero.title}
             </p>
             <p className="mt-4 text-[13px] leading-[1.55] text-white/72 sm:text-[14px]">
-              Transformo ideias em sistemas robustos, escalaveis e
-              inteligentes. Da engenharia de requisitos a arquitetura, do
-              banco de dados ao deploy.
+              {text.hero.description}
             </p>
+          </div>
+
+          <div className="absolute left-5 top-[414px] z-10 flex items-center gap-2.5">
+            {socialLinks.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                aria-label={item.name}
+                target={item.href.startsWith("mailto:") ? undefined : "_blank"}
+                rel={
+                  item.href.startsWith("mailto:")
+                    ? undefined
+                    : "noreferrer noopener"
+                }
+                className="relative block h-11 w-11 transition hover:-translate-y-0.5 hover:opacity-90"
+              >
+                <Image
+                  src={item.icon}
+                  alt={item.name}
+                  fill
+                  className="object-contain"
+                />
+              </a>
+            ))}
           </div>
         </div>
       </div>
