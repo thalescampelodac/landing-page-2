@@ -389,6 +389,11 @@ export default function Home() {
     rede: 0,
   });
   const text = copy[selectedLanguage.code];
+  const cvByLanguage = {
+    PT: "/cv/thales-campelo-cv-pt.pdf",
+    EN: "/cv/thales-campelo-cv-en.pdf",
+    ES: "/cv/thales-campelo-cv-es.pdf",
+  } as const;
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -740,7 +745,10 @@ export default function Home() {
                 {text.about.description2}
               </p>
               <a
-                href="#"
+                href={cvByLanguage[selectedLanguage.code]}
+                download
+                target="_blank"
+                rel="noreferrer"
                 className="mt-6 inline-flex items-center rounded-[10px] border border-[#2c4260] px-4 py-2 text-sm text-white transition hover:opacity-85"
               >
                 {text.about.cta}
