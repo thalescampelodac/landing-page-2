@@ -435,20 +435,20 @@ export default function Home() {
                 </div>
               </div>
 
-              <nav className="flex items-center gap-2 text-sm text-white/90 sm:gap-3">
-                <a href="#sobre" className="px-2 py-1 hover:text-[#5aa7ff]">
+              <nav className="flex items-center gap-0 text-[9px] text-white/90 sm:gap-3 sm:text-sm">
+                <a href="#sobre" className="px-0.5 py-0.5 hover:text-[#5aa7ff] sm:px-2 sm:py-1">
                   {text.nav.about}
                 </a>
-                <a href="#projetos" className="px-2 py-1 hover:text-[#5aa7ff]">
+                <a href="#projetos" className="px-0.5 py-0.5 hover:text-[#5aa7ff] sm:px-2 sm:py-1">
                   {text.nav.projects}
                 </a>
                 <a
                   href="#tecnologias"
-                  className="px-2 py-1 hover:text-[#5aa7ff]"
+                  className="px-0.5 py-0.5 hover:text-[#5aa7ff] sm:px-2 sm:py-1"
                 >
                   {text.nav.technologies}
                 </a>
-                <a href="#contato" className="px-2 py-1 hover:text-[#5aa7ff]">
+                <a href="#contato" className="px-0.5 py-0.5 hover:text-[#5aa7ff] sm:px-2 sm:py-1">
                   {text.nav.contact}
                 </a>
 
@@ -456,7 +456,7 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={() => setLanguageOpen((current) => !current)}
-                    className="flex items-center gap-1 rounded-[10px] border border-[#2c4260] bg-[rgba(6,10,18,0.55)] px-3 py-2 text-white"
+                    className="flex items-center gap-1 rounded-[10px] border border-[#2c4260] bg-[rgba(6,10,18,0.55)] px-1 py-0.5 text-white sm:px-3 sm:py-2"
                   >
                     <FlagIcon
                       flag={selectedLanguage.flag}
