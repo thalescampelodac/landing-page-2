@@ -409,7 +409,7 @@ export default function Home() {
   return (
     <main className="page-shell min-h-screen px-3 py-4 text-white sm:px-5 sm:py-5">
       <div className="mx-auto w-full max-w-[760px] rounded-[24px] border border-[#24364f] bg-[linear-gradient(180deg,rgba(6,10,18,0.98),rgba(5,9,16,0.98))] shadow-[0_0_0_1px_rgba(255,255,255,0.03)_inset,0_24px_80px_rgba(0,0,0,0.4)]">
-        <div className="relative w-full overflow-hidden rounded-t-[24px]">
+        <div className="relative min-h-[500px] w-full overflow-hidden rounded-t-[24px] sm:min-h-[590px] md:min-h-0">
           <Image
             src="/images/mockup/hero-base.png"
             alt="Base visual do hero"
