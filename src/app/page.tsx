@@ -40,6 +40,23 @@ const copy = {
       eyebrow: "Tecnologias",
       subtitle: "Ferramentas que uso para construir soluções modernas.",
     },
+    about: {
+      eyebrow: "Sobre Mim",
+      title: "Experiência em software, arquitetura e produto.",
+      description:
+        "Formado em Análise de Sistemas, atuo com desenvolvimento, arquitetura de software, definição de requisitos funcionais e modelagem de banco de dados.",
+      description2:
+        "Meu foco é construir sistemas que resolvem problemas reais, com código limpo, escalabilidade e uma boa experiência para o usuário final.",
+      cta: "Baixar CV",
+    },
+    contact: {
+      eyebrow: "Contato",
+      title: "Vamos conversar sobre projetos, parcerias e oportunidades.",
+      phone: "(32) 9 9159-4895",
+      email: "thalescampelo@gmail.com",
+      linkedin: "linkedin.com/in/thalescampelo",
+    },
+    footer: "© 2026 Thales Campelo. Todos os direitos reservados.",
     projectItems: {
       comprovou:
         "Plataforma que simplifica a validação de comprovantes, reduzindo fraudes e trazendo confiança para transações.",
@@ -75,6 +92,23 @@ const copy = {
       eyebrow: "Technologies",
       subtitle: "Tools I use to build modern solutions.",
     },
+    about: {
+      eyebrow: "About Me",
+      title: "Experience in software, architecture, and product.",
+      description:
+        "Graduated in Systems Analysis, I work with software development, software architecture, functional requirements definition, and database modeling.",
+      description2:
+        "My focus is building systems that solve real problems with clean code, scalability, and a great end-user experience.",
+      cta: "Download CV",
+    },
+    contact: {
+      eyebrow: "Contact",
+      title: "Let’s talk about projects, partnerships, and opportunities.",
+      phone: "(32) 9 9159-4895",
+      email: "thalescampelo@gmail.com",
+      linkedin: "linkedin.com/in/thalescampelo",
+    },
+    footer: "© 2024 Thales Campelo. All rights reserved.",
     projectItems: {
       comprovou:
         "A platform that simplifies receipt validation, reducing fraud and bringing trust to transactions.",
@@ -110,6 +144,23 @@ const copy = {
       eyebrow: "Tecnologías",
       subtitle: "Herramientas que uso para construir soluciones modernas.",
     },
+    about: {
+      eyebrow: "Sobre Mí",
+      title: "Experiencia en software, arquitectura y producto.",
+      description:
+        "Graduado en Análisis de Sistemas, trabajo con desarrollo de software, arquitectura de software, definición de requisitos funcionales y modelado de base de datos.",
+      description2:
+        "Mi enfoque es construir sistemas que resuelvan problemas reales con código limpio, escalabilidad y una gran experiencia para el usuario final.",
+      cta: "Descargar CV",
+    },
+    contact: {
+      eyebrow: "Contacto",
+      title: "Hablemos sobre proyectos, alianzas y oportunidades.",
+      phone: "(32) 9 9159-4895",
+      email: "thalescampelo@gmail.com",
+      linkedin: "linkedin.com/in/thalescampelo",
+    },
+    footer: "© 2024 Thales Campelo. Todos los derechos reservados.",
     projectItems: {
       comprovou:
         "Plataforma que simplifica la validación de comprobantes, reduce fraudes y aporta confianza a las transacciones.",
@@ -498,7 +549,7 @@ export default function Home() {
         <section
           id="projetos"
           className="px-4 pb-4 pt-0 sm:px-5 sm:pb-5"
-          style={{ marginTop: "2px" }}
+          style={{ marginTop: "2px", backgroundColor: stageSectionBackground }}
         >
           <div
             className="rounded-[18px] border border-[#24364f] px-4 py-4 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset] sm:px-5 sm:py-5"
@@ -658,6 +709,109 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <section className="px-4 pb-4 sm:px-5 sm:pb-5">
+          <div className="grid gap-3 md:grid-cols-2">
+            <article
+              id="sobre"
+              className="rounded-[18px] border border-[#24364f] px-5 py-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset]"
+              style={{ backgroundColor: stageSectionBackground }}
+            >
+              <div className="flex items-center gap-2">
+                <ProjectMark type="spark" />
+                <h2 className="display-font text-[18px] uppercase tracking-[0.12em] text-white">
+                  {text.about.eyebrow}
+                </h2>
+              </div>
+              <p className="mt-5 text-[19px] font-medium leading-[1.45] text-white">
+                {text.about.title}
+              </p>
+              <p className="mt-5 text-[14px] leading-[1.7] text-white/72">
+                {text.about.description}
+              </p>
+              <p className="mt-4 text-[14px] leading-[1.7] text-white/72">
+                {text.about.description2}
+              </p>
+              <a
+                href="#"
+                className="mt-6 inline-flex items-center rounded-[10px] border border-[#2c4260] px-4 py-2 text-sm text-white transition hover:opacity-85"
+              >
+                {text.about.cta}
+              </a>
+            </article>
+
+            <article
+              id="contato"
+              className="rounded-[18px] border border-[#24364f] px-5 py-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset]"
+              style={{ backgroundColor: stageSectionBackground }}
+            >
+              <div className="flex items-center gap-2">
+                <ProjectMark type="spark" />
+                <h2 className="display-font text-[18px] uppercase tracking-[0.12em] text-white">
+                  {text.contact.eyebrow}
+                </h2>
+              </div>
+              <p className="mt-5 max-w-[360px] text-[19px] font-medium leading-[1.45] text-white">
+                {text.contact.title}
+              </p>
+
+              <div className="mt-6 grid gap-4">
+                <a
+                  href="https://wa.me/5532991594895"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="flex items-center gap-3 text-white/82 transition hover:text-white"
+                >
+                  <span className="relative h-10 w-10 shrink-0">
+                    <Image
+                      src="/images/social/whatsapp.png"
+                      alt="WhatsApp"
+                      fill
+                      className="object-contain"
+                    />
+                  </span>
+                  <span>{text.contact.phone}</span>
+                </a>
+
+                <a
+                  href="mailto:thalescampelo@gmail.com"
+                  className="flex items-center gap-3 text-white/82 transition hover:text-white"
+                >
+                  <span className="relative h-10 w-10 shrink-0">
+                    <Image
+                      src="/images/social/email.png"
+                      alt="Email"
+                      fill
+                      className="object-contain"
+                    />
+                  </span>
+                  <span>{text.contact.email}</span>
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/thalescampelo/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="flex items-center gap-3 text-white/82 transition hover:text-white"
+                >
+                  <span className="relative h-10 w-10 shrink-0">
+                    <Image
+                      src="/images/social/linkedin.png"
+                      alt="LinkedIn"
+                      fill
+                      className="object-contain"
+                    />
+                  </span>
+                  <span>{text.contact.linkedin}</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <footer className="px-4 pb-6 text-center text-sm text-white/50 sm:px-5">
+          {text.footer}
+        </footer>
       </div>
     </main>
   );
