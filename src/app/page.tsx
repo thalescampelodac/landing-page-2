@@ -40,7 +40,7 @@ const copy = {
       eyebrow: "Tecnologias",
       subtitle: "Ferramentas que uso para construir soluções modernas.",
     },
-    services: {
+    servicesEnLegacy: {
       eyebrow: "Landing Pages",
       title:
         "Gostou da minha landing page? Eu posso te ajudar a criar uma!",
@@ -72,7 +72,7 @@ const copy = {
         },
       ],
     },
-    services: {
+    servicesEsLegacy: {
       eyebrow: "Landing Pages",
       title: "Liked my landing page? I can help you create one too!",
       description:
