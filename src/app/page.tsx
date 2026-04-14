@@ -40,6 +40,100 @@ const copy = {
       eyebrow: "Tecnologias",
       subtitle: "Ferramentas que uso para construir soluções modernas.",
     },
+    services: {
+      eyebrow: "Landing Pages",
+      title:
+        "Gostou da minha landing page? Eu posso te ajudar a criar uma!",
+      description:
+        "Entre em contato comigo em um dos meus canais e vamos conversar sobre a melhor estrutura para o seu projeto.",
+      cta: "Ver planos comerciais",
+      modalTitle: "Planos comerciais para criaÃ§Ã£o de landing page",
+      modalDescription:
+        "Pacotes organizados para diferentes nÃ­veis de acabamento, conversÃ£o e integraÃ§Ãµes.",
+      close: "Fechar",
+      plans: [
+        {
+          name: "Pacote Essencial",
+          price: "R$ 1.990",
+          description:
+            "Uma pÃ¡gina, responsiva, com seÃ§Ãµes institucionais, links, formulÃ¡rio simples e deploy.",
+        },
+        {
+          name: "Pacote Profissional",
+          price: "R$ 3.490",
+          description:
+            "Tudo do essencial + visual mais autoral, melhor acabamento, animaÃ§Ãµes leves, SEO bÃ¡sico, performance, integraÃ§Ã£o e revisÃµes.",
+        },
+        {
+          name: "Pacote Premium",
+          price: "R$ 3.990 a R$ 5.500",
+          description:
+            "Tudo do profissional + copy estratÃ©gica, funil de conversÃ£o, analytics, testes, mais integraÃ§Ãµes e suporte pÃ³s-entrega.",
+        },
+      ],
+    },
+    services: {
+      eyebrow: "Landing Pages",
+      title: "Liked my landing page? I can help you create one too!",
+      description:
+        "Reach out through one of my channels and letâ€™s talk about the best structure for your project.",
+      cta: "View pricing plans",
+      modalTitle: "Commercial landing page plans",
+      modalDescription:
+        "Packages organized for different levels of polish, conversion, and integrations.",
+      close: "Close",
+      plans: [
+        {
+          name: "Essential Package",
+          price: "R$ 1.990",
+          description:
+            "One responsive page with institutional sections, links, a simple form, and deployment.",
+        },
+        {
+          name: "Professional Package",
+          price: "R$ 3.490",
+          description:
+            "Everything in Essential plus more distinctive visuals, refined finish, light animations, basic SEO, performance work, integrations, and revisions.",
+        },
+        {
+          name: "Premium Package",
+          price: "R$ 3.990 to R$ 5.500",
+          description:
+            "Everything in Professional plus strategic copy, conversion funnel, analytics, tests, more integrations, and post-launch support.",
+        },
+      ],
+    },
+    services: {
+      eyebrow: "Landing Pages",
+      title: "Â¿Te gustÃ³ mi landing page? TambiÃ©n puedo crear una para ti.",
+      description:
+        "Ponte en contacto conmigo por uno de mis canales y conversemos sobre la mejor estructura para tu proyecto.",
+      cta: "Ver planes comerciales",
+      modalTitle: "Planes comerciales para landing pages",
+      modalDescription:
+        "Paquetes organizados para diferentes niveles de acabado, conversiÃ³n e integraciones.",
+      close: "Cerrar",
+      plans: [
+        {
+          name: "Paquete Esencial",
+          price: "R$ 1.990",
+          description:
+            "Una pÃ¡gina responsiva con secciones institucionales, enlaces, formulario simple y deploy.",
+        },
+        {
+          name: "Paquete Profesional",
+          price: "R$ 3.490",
+          description:
+            "Todo lo del esencial mÃ¡s un visual mÃ¡s autoral, mejor acabado, animaciones leves, SEO bÃ¡sico, performance, integraciones y revisiones.",
+        },
+        {
+          name: "Paquete Premium",
+          price: "R$ 3.990 a R$ 5.500",
+          description:
+            "Todo lo del profesional mÃ¡s copy estratÃ©gico, embudo de conversiÃ³n, analytics, pruebas, mÃ¡s integraciones y soporte post-entrega.",
+        },
+      ],
+    },
     about: {
       eyebrow: "Sobre Mim",
       title: "Experiência em software, arquitetura e produto.",
@@ -168,6 +262,261 @@ const copy = {
     },
   },
 } as const;
+
+const localizedCopy = {
+  PT: {
+    nav: {
+      about: "Sobre",
+      projects: "Projetos",
+      technologies: "Tecnologias",
+      contact: "Contato",
+    },
+    badge: "Analista de Sistemas",
+    hero: {
+      firstName: "Thales",
+      lastName: "Campelo",
+      title:
+        "Especialista em Solu\u00e7\u00f5es de Software e Arquitetura de Produtos Digitais",
+      description:
+        "Transformo ideias em sistemas robustos, escal\u00e1veis e inteligentes. Da engenharia de requisitos \u00e0 arquitetura, do banco de dados ao deploy.",
+    },
+    projects: {
+      eyebrow: "Projetos Destaque",
+      subtitle: "Solu\u00e7\u00f5es reais, com prop\u00f3sito e impacto.",
+      cta: "Acessar projeto",
+      comingSoon: "COMING SOON",
+      comingSoonDescription:
+        "Outros projetos est\u00e3o na esteira de produ\u00e7\u00e3o e chegam em breve.",
+      inProgress: "Em produ\u00e7\u00e3o",
+    },
+    technologies: {
+      eyebrow: "Tecnologias",
+      subtitle: "Ferramentas que uso para construir solu\u00e7\u00f5es modernas.",
+    },
+    services: {
+      eyebrow: "Landing Pages",
+      title:
+        "Gostou da minha landing page? Eu posso te ajudar a criar uma!",
+      description:
+        "Entre em contato comigo em um dos meus canais e vamos conversar sobre a melhor estrutura para o seu projeto.",
+      cta: "Ver planos comerciais",
+      modalTitle: "Planos comerciais para cria\u00e7\u00e3o de landing page",
+      modalDescription:
+        "Pacotes organizados para diferentes n\u00edveis de acabamento, convers\u00e3o e integra\u00e7\u00f5es.",
+      close: "Fechar",
+      plans: [
+        {
+          name: "Pacote Essencial",
+          price: "R$ 1.990",
+          description:
+            "Uma p\u00e1gina, responsiva, com se\u00e7\u00f5es institucionais, links, formul\u00e1rio simples e deploy.",
+        },
+        {
+          name: "Pacote Profissional",
+          price: "R$ 3.490",
+          description:
+            "Tudo do essencial + visual mais autoral, melhor acabamento, anima\u00e7\u00f5es leves, SEO b\u00e1sico, performance, integra\u00e7\u00e3o e revis\u00f5es.",
+        },
+        {
+          name: "Pacote Premium",
+          price: "R$ 3.990 a R$ 5.500",
+          description:
+            "Tudo do profissional + copy estrat\u00e9gica, funil de convers\u00e3o, analytics, testes, mais integra\u00e7\u00f5es e suporte p\u00f3s-entrega.",
+        },
+      ],
+    },
+    about: {
+      eyebrow: "Sobre Mim",
+      title: "Experi\u00eancia em software, arquitetura e produto.",
+      description:
+        "Formado em An\u00e1lise de Sistemas, atuo com desenvolvimento, arquitetura de software, defini\u00e7\u00e3o de requisitos funcionais e modelagem de banco de dados.",
+      description2:
+        "Meu foco \u00e9 construir sistemas que resolvem problemas reais, com c\u00f3digo limpo, escalabilidade e uma boa experi\u00eancia para o usu\u00e1rio final.",
+      cta: "Baixar CV",
+    },
+    contact: {
+      eyebrow: "Contato",
+      title: "Vamos conversar sobre projetos, parcerias e oportunidades.",
+      phone: "(32) 9 9159-4895",
+      email: "thalescampelo@gmail.com",
+      linkedin: "linkedin.com/in/thalescampelo",
+    },
+    footer: "\u00a9 2026 Thales Campelo. Todos os direitos reservados.",
+    projectItems: {
+      comprovou:
+        "Plataforma que simplifica a valida\u00e7\u00e3o de comprovantes, reduzindo fraudes e trazendo confian\u00e7a para transa\u00e7\u00f5es.",
+      rede: "Plataforma colaborativa para conectar pessoas, compartilhar conhecimento e impulsionar redes.",
+    },
+  },
+  EN: {
+    nav: {
+      about: "About",
+      projects: "Projects",
+      technologies: "Technologies",
+      contact: "Contact",
+    },
+    badge: "Systems Analyst",
+    hero: {
+      firstName: "Thales",
+      lastName: "Campelo",
+      title:
+        "Specialist in Software Solutions and Digital Product Architecture",
+      description:
+        "I turn ideas into robust, scalable, and intelligent systems. From requirements engineering to architecture, from database design to deployment.",
+    },
+    projects: {
+      eyebrow: "Featured Projects",
+      subtitle: "Real solutions, with purpose and impact.",
+      cta: "Open project",
+      comingSoon: "COMING SOON",
+      comingSoonDescription:
+        "More projects are in production and will arrive soon.",
+      inProgress: "In progress",
+    },
+    technologies: {
+      eyebrow: "Technologies",
+      subtitle: "Tools I use to build modern solutions.",
+    },
+    services: {
+      eyebrow: "Landing Pages",
+      title: "Liked my landing page? I can help you create one too!",
+      description:
+        "Reach out through one of my channels and let's talk about the best structure for your project.",
+      cta: "View pricing plans",
+      modalTitle: "Commercial landing page plans",
+      modalDescription:
+        "Packages organized for different levels of polish, conversion, and integrations.",
+      close: "Close",
+      plans: [
+        {
+          name: "Essential Package",
+          price: "R$ 1.990",
+          description:
+            "One responsive page with institutional sections, links, a simple form, and deployment.",
+        },
+        {
+          name: "Professional Package",
+          price: "R$ 3.490",
+          description:
+            "Everything in Essential plus more distinctive visuals, refined finish, light animations, basic SEO, performance work, integrations, and revisions.",
+        },
+        {
+          name: "Premium Package",
+          price: "R$ 3.990 to R$ 5.500",
+          description:
+            "Everything in Professional plus strategic copy, conversion funnel, analytics, tests, more integrations, and post-launch support.",
+        },
+      ],
+    },
+    about: {
+      eyebrow: "About Me",
+      title: "Experience in software, architecture, and product.",
+      description:
+        "Graduated in Systems Analysis, I work with software development, software architecture, functional requirements definition, and database modeling.",
+      description2:
+        "My focus is building systems that solve real problems with clean code, scalability, and a great end-user experience.",
+      cta: "Download CV",
+    },
+    contact: {
+      eyebrow: "Contact",
+      title: "Let's talk about projects, partnerships, and opportunities.",
+      phone: "(32) 9 9159-4895",
+      email: "thalescampelo@gmail.com",
+      linkedin: "linkedin.com/in/thalescampelo",
+    },
+    footer: "\u00a9 2024 Thales Campelo. All rights reserved.",
+    projectItems: {
+      comprovou:
+        "A platform that simplifies receipt validation, reducing fraud and bringing trust to transactions.",
+      rede: "A collaborative platform to connect people, share knowledge, and strengthen networks.",
+    },
+  },
+  ES: {
+    nav: {
+      about: "Sobre",
+      projects: "Proyectos",
+      technologies: "Tecnolog\u00edas",
+      contact: "Contacto",
+    },
+    badge: "Analista de Sistemas",
+    hero: {
+      firstName: "Thales",
+      lastName: "Campelo",
+      title:
+        "Especialista en Soluciones de Software y Arquitectura de Productos Digitales",
+      description:
+        "Transformo ideas en sistemas robustos, escalables e inteligentes. Desde la ingenier\u00eda de requisitos hasta la arquitectura, de la base de datos al despliegue.",
+    },
+    projects: {
+      eyebrow: "Proyectos Destacados",
+      subtitle: "Soluciones reales, con prop\u00f3sito e impacto.",
+      cta: "Abrir proyecto",
+      comingSoon: "PR\u00d3XIMAMENTE",
+      comingSoonDescription:
+        "Otros proyectos est\u00e1n en producci\u00f3n y llegar\u00e1n pronto.",
+      inProgress: "En producci\u00f3n",
+    },
+    technologies: {
+      eyebrow: "Tecnolog\u00edas",
+      subtitle: "Herramientas que uso para construir soluciones modernas.",
+    },
+    services: {
+      eyebrow: "Landing Pages",
+      title: "\u00bfTe gust\u00f3 mi landing page? Tambi\u00e9n puedo crear una para ti.",
+      description:
+        "Ponte en contacto conmigo por uno de mis canales y conversemos sobre la mejor estructura para tu proyecto.",
+      cta: "Ver planes comerciales",
+      modalTitle: "Planes comerciales para landing pages",
+      modalDescription:
+        "Paquetes organizados para diferentes niveles de acabado, conversi\u00f3n e integraciones.",
+      close: "Cerrar",
+      plans: [
+        {
+          name: "Paquete Esencial",
+          price: "R$ 1.990",
+          description:
+            "Una p\u00e1gina responsiva con secciones institucionales, enlaces, formulario simple y deploy.",
+        },
+        {
+          name: "Paquete Profesional",
+          price: "R$ 3.490",
+          description:
+            "Todo lo del esencial m\u00e1s un visual m\u00e1s autoral, mejor acabado, animaciones leves, SEO b\u00e1sico, performance, integraciones y revisiones.",
+        },
+        {
+          name: "Paquete Premium",
+          price: "R$ 3.990 a R$ 5.500",
+          description:
+            "Todo lo del profesional m\u00e1s copy estrat\u00e9gico, embudo de conversi\u00f3n, analytics, pruebas, m\u00e1s integraciones y soporte post-entrega.",
+        },
+      ],
+    },
+    about: {
+      eyebrow: "Sobre M\u00ed",
+      title: "Experiencia en software, arquitectura y producto.",
+      description:
+        "Graduado en An\u00e1lisis de Sistemas, trabajo con desarrollo de software, arquitectura de software, definici\u00f3n de requisitos funcionales y modelado de base de datos.",
+      description2:
+        "Mi enfoque es construir sistemas que resuelvan problemas reales con c\u00f3digo limpio, escalabilidad y una gran experiencia para el usuario final.",
+      cta: "Descargar CV",
+    },
+    contact: {
+      eyebrow: "Contacto",
+      title: "Hablemos sobre proyectos, alianzas y oportunidades.",
+      phone: "(32) 9 9159-4895",
+      email: "thalescampelo@gmail.com",
+      linkedin: "linkedin.com/in/thalescampelo",
+    },
+    footer: "\u00a9 2024 Thales Campelo. Todos los derechos reservados.",
+    projectItems: {
+      comprovou:
+        "Plataforma que simplifica la validaci\u00f3n de comprobantes, reduce fraudes y aporta confianza a las transacciones.",
+      rede: "Plataforma colaborativa para conectar personas, compartir conocimiento e impulsar redes.",
+    },
+  },
+} as const;
+
+void copy;
 
 const socialLinks = [
   {
@@ -381,6 +730,7 @@ function TechnologyLogo({
 
 export default function Home() {
   const [languageOpen, setLanguageOpen] = useState(false);
+  const [plansModalOpen, setPlansModalOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState<
     (typeof languages)[number]
   >(languages[0]);
@@ -388,7 +738,7 @@ export default function Home() {
     comprovou: 0,
     rede: 0,
   });
-  const text = copy[selectedLanguage.code];
+  const text = localizedCopy[selectedLanguage.code];
   const cvByLanguage = {
     PT: "/cv/thales-campelo-cv-pt.pdf",
     EN: "/cv/thales-campelo-cv-en.pdf",
@@ -405,6 +755,22 @@ export default function Home() {
 
     return () => window.clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    if (!plansModalOpen) {
+      return undefined;
+    }
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setPlansModalOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleEscape);
+
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, [plansModalOpen]);
 
   return (
     <main className="page-shell min-h-screen px-3 py-4 text-white sm:px-5 sm:py-5">
@@ -723,6 +1089,42 @@ export default function Home() {
           className="px-4 pb-4 sm:px-5 sm:pb-5"
           style={{ backgroundColor: stageSectionBackground }}
         >
+          <article
+            className="rounded-[18px] border border-[#24364f] px-5 py-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset]"
+            style={{ backgroundColor: stageSectionBackground }}
+          >
+            <div className="flex items-center gap-2">
+              <ProjectMark type="spark" />
+              <h2 className="display-font text-[18px] uppercase tracking-[0.12em] text-white">
+                {text.services.eyebrow}
+              </h2>
+            </div>
+
+            <div className="mt-5 grid gap-5 md:grid-cols-[1.3fr_220px] md:items-end">
+              <div>
+                <p className="max-w-[520px] text-[19px] font-medium leading-[1.45] text-white">
+                  {text.services.title}
+                </p>
+                <p className="mt-4 max-w-[560px] text-[14px] leading-[1.7] text-white/72">
+                  {text.services.description}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setPlansModalOpen(true)}
+                className="inline-flex items-center justify-center rounded-[12px] border border-[#2c6d64] bg-[linear-gradient(180deg,rgba(14,37,40,0.98),rgba(9,19,23,0.98))] px-4 py-3 text-sm font-medium text-white transition hover:opacity-90"
+              >
+                {text.services.cta}
+              </button>
+            </div>
+          </article>
+        </section>
+
+        <section
+          className="px-4 pb-4 sm:px-5 sm:pb-5"
+          style={{ backgroundColor: stageSectionBackground }}
+        >
           <div className="grid gap-3 md:grid-cols-2">
             <article
               id="sobre"
@@ -836,6 +1238,70 @@ export default function Home() {
           </div>
         </footer>
       </div>
+
+      {plansModalOpen ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(2,6,16,0.82)] px-4 py-6 backdrop-blur-sm"
+          onClick={() => setPlansModalOpen(false)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="plans-modal-title"
+            className="w-full max-w-[860px] rounded-[24px] border border-[#24364f] bg-[linear-gradient(180deg,rgba(6,10,18,0.99),rgba(5,9,16,0.99))] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.48)] sm:p-6"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <div className="flex items-center gap-2">
+                  <ProjectMark type="spark" />
+                  <h2
+                    id="plans-modal-title"
+                    className="display-font text-[18px] uppercase tracking-[0.12em] text-white sm:text-[20px]"
+                  >
+                    {text.services.modalTitle}
+                  </h2>
+                </div>
+                <p className="mt-3 max-w-[620px] text-[14px] leading-[1.7] text-white/68">
+                  {text.services.modalDescription}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setPlansModalOpen(false)}
+                className="rounded-[10px] border border-[#2c4260] px-3 py-2 text-sm text-white/84 transition hover:text-white"
+                aria-label={text.services.close}
+              >
+                {text.services.close}
+              </button>
+            </div>
+
+            <div className="mt-6 grid gap-4 lg:grid-cols-3">
+              {text.services.plans.map((plan, index) => (
+                <article
+                  key={plan.name}
+                  className={`rounded-[18px] border p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset] ${
+                    index === 1
+                      ? "border-[#2c6d64] bg-[linear-gradient(180deg,rgba(8,28,33,0.96),rgba(6,16,22,0.96))]"
+                      : "border-[#2c4260] bg-[linear-gradient(180deg,rgba(9,14,28,0.96),rgba(6,10,18,0.96))]"
+                  }`}
+                >
+                  <div className="inline-flex rounded-full border border-white/10 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-[#58a6ff]">
+                    {plan.name}
+                  </div>
+                  <p className="mt-4 text-[28px] font-semibold leading-none text-white">
+                    {plan.price}
+                  </p>
+                  <p className="mt-4 text-[14px] leading-[1.7] text-white/72">
+                    {plan.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : null}
     </main>
   );
 }
