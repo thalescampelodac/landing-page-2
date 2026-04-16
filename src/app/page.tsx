@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
+import { trackEvent } from "./lib/gtm";
 
 const languages = [
   { code: "PT", label: "Português", flag: "/images/flags/br.svg" },
@@ -42,8 +43,7 @@ const copy = {
     },
     servicesEnLegacy: {
       eyebrow: "Landing Pages",
-      title:
-        "Gostou da minha landing page? Eu posso te ajudar a criar uma!",
+      title: "Gostou da minha landing page? Eu posso te ajudar a criar uma!",
       description:
         "Entre em contato comigo em um dos meus canais e vamos conversar sobre a melhor estrutura para o seu projeto.",
       cta: "Ver planos comerciais",
@@ -291,12 +291,12 @@ const localizedCopy = {
     },
     technologies: {
       eyebrow: "Tecnologias",
-      subtitle: "Ferramentas que uso para construir solu\u00e7\u00f5es modernas.",
+      subtitle:
+        "Ferramentas que uso para construir solu\u00e7\u00f5es modernas.",
     },
     services: {
       eyebrow: "Landing Pages",
-      title:
-        "Gostou da minha landing page? Eu posso te ajudar a criar uma!",
+      title: "Gostou da minha landing page? Eu posso te ajudar a criar uma!",
       description:
         "Entre em contato comigo em um dos meus canais e vamos conversar sobre a melhor estrutura para o seu projeto.",
       cta: "Ver planos comerciais",
@@ -462,7 +462,8 @@ const localizedCopy = {
     },
     services: {
       eyebrow: "Landing Pages",
-      title: "\u00bfTe gust\u00f3 mi landing page? Tambi\u00e9n puedo crear una para ti.",
+      title:
+        "\u00bfTe gust\u00f3 mi landing page? Tambi\u00e9n puedo crear una para ti.",
       description:
         "Ponte en contacto conmigo por uno de mis canales y conversemos sobre la mejor estructura para tu proyecto.",
       cta: "Ver planes comerciales",
@@ -802,10 +803,16 @@ export default function Home() {
               </div>
 
               <nav className="flex items-center gap-0 text-[9px] text-white/90 sm:gap-3 sm:text-sm">
-                <a href="#sobre" className="px-0.5 py-0.5 hover:text-[#5aa7ff] sm:px-2 sm:py-1">
+                <a
+                  href="#sobre"
+                  className="px-0.5 py-0.5 hover:text-[#5aa7ff] sm:px-2 sm:py-1"
+                >
                   {text.nav.about}
                 </a>
-                <a href="#projetos" className="px-0.5 py-0.5 hover:text-[#5aa7ff] sm:px-2 sm:py-1">
+                <a
+                  href="#projetos"
+                  className="px-0.5 py-0.5 hover:text-[#5aa7ff] sm:px-2 sm:py-1"
+                >
                   {text.nav.projects}
                 </a>
                 <a
@@ -814,7 +821,10 @@ export default function Home() {
                 >
                   {text.nav.technologies}
                 </a>
-                <a href="#contato" className="px-0.5 py-0.5 hover:text-[#5aa7ff] sm:px-2 sm:py-1">
+                <a
+                  href="#contato"
+                  className="px-0.5 py-0.5 hover:text-[#5aa7ff] sm:px-2 sm:py-1"
+                >
                   {text.nav.contact}
                 </a>
 
@@ -843,6 +853,10 @@ export default function Home() {
                           key={language.code}
                           type="button"
                           onClick={() => {
+                            trackEvent("language_change", {
+                              previous_language: selectedLanguage.code,
+                              new_language: language.code,
+                            });
                             setSelectedLanguage(language);
                             setLanguageOpen(false);
                           }}
@@ -904,6 +918,14 @@ export default function Home() {
                     ? undefined
                     : "noreferrer noopener"
                 }
+                onClick={() =>
+                  trackEvent("social_click", {
+                    social_name: item.name,
+                    social_url: item.href,
+                    section: "hero",
+                    language: selectedLanguage.code,
+                  })
+                }
                 className="relative block h-11 w-11 transition hover:-translate-y-0.5 hover:opacity-90"
               >
                 <Image
@@ -963,6 +985,14 @@ export default function Home() {
                       href={project.href}
                       target="_blank"
                       rel="noreferrer noopener"
+                      onClick={() =>
+                        trackEvent("project_click", {
+                          project_name: project.name,
+                          project_id: project.id,
+                          project_url: project.href,
+                          language: selectedLanguage.code,
+                        })
+                      }
                       className="mt-4 inline-flex items-center gap-2 text-[15px] text-[#58a6ff] transition hover:opacity-85"
                     >
                       <span>{text.projects.cta}</span>
@@ -1063,6 +1093,14 @@ export default function Home() {
                   href={technology.href}
                   target="_blank"
                   rel="noreferrer noopener"
+                  onClick={() =>
+                    trackEvent("technology_click", {
+                      technology_name: technology.name,
+                      technology_id: technology.id,
+                      technology_url: technology.href,
+                      language: selectedLanguage.code,
+                    })
+                  }
                   className="flex items-center gap-3 rounded-[12px] border border-[#2c4260] px-4 py-3 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset]"
                   style={{ backgroundColor: stageSectionBackground }}
                 >
@@ -1112,7 +1150,13 @@ export default function Home() {
 
               <button
                 type="button"
-                onClick={() => setPlansModalOpen(true)}
+                onClick={() => {
+                  trackEvent("open_pricing_modal", {
+                    section: "services",
+                    language: selectedLanguage.code,
+                  });
+                  setPlansModalOpen(true);
+                }}
                 className="inline-flex items-center justify-center rounded-[12px] border border-[#2c6d64] bg-[linear-gradient(180deg,rgba(14,37,40,0.98),rgba(9,19,23,0.98))] px-4 py-3 text-sm font-medium text-white transition hover:opacity-90"
               >
                 {text.services.cta}
@@ -1151,6 +1195,12 @@ export default function Home() {
                 download
                 target="_blank"
                 rel="noreferrer"
+                onClick={() =>
+                  trackEvent("download_cv", {
+                    cv_language: selectedLanguage.code,
+                    cv_url: cvByLanguage[selectedLanguage.code],
+                  })
+                }
                 className="mt-6 inline-flex items-center rounded-[10px] border border-[#2c4260] px-4 py-2 text-sm text-white transition hover:opacity-85"
               >
                 {text.about.cta}
@@ -1177,6 +1227,13 @@ export default function Home() {
                   href="https://wa.me/5532991594895"
                   target="_blank"
                   rel="noreferrer noopener"
+                  onClick={() =>
+                    trackEvent("contact_click", {
+                      contact_type: "whatsapp",
+                      section: "contact",
+                      language: selectedLanguage.code,
+                    })
+                  }
                   className="flex items-center gap-3 text-white/82 transition hover:text-white"
                 >
                   <span className="relative h-10 w-10 shrink-0">
@@ -1192,6 +1249,13 @@ export default function Home() {
 
                 <a
                   href="mailto:thalescampelo@gmail.com"
+                  onClick={() =>
+                    trackEvent("contact_click", {
+                      contact_type: "email",
+                      section: "contact",
+                      language: selectedLanguage.code,
+                    })
+                  }
                   className="flex items-center gap-3 text-white/82 transition hover:text-white"
                 >
                   <span className="relative h-10 w-10 shrink-0">
@@ -1209,6 +1273,13 @@ export default function Home() {
                   href="https://www.linkedin.com/in/thalescampelo/"
                   target="_blank"
                   rel="noreferrer noopener"
+                  onClick={() =>
+                    trackEvent("contact_click", {
+                      contact_type: "linkedin",
+                      section: "contact",
+                      language: selectedLanguage.code,
+                    })
+                  }
                   className="flex items-center gap-3 text-white/82 transition hover:text-white"
                 >
                   <span className="relative h-10 w-10 shrink-0">
