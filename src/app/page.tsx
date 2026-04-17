@@ -325,6 +325,39 @@ const localizedCopy = {
         },
       ],
     },
+    mvp: {
+      eyebrow: "MVP Express",
+      title:
+        "Precisa validar uma ideia r\u00e1pido? Eu desenvolvo seu MVP web em at\u00e9 5 dias \u00fateis.",
+      description:
+        "Escopo enxuto, foco no que realmente importa e entrega completa: produto no ar, c\u00f3digo-fonte, banco, infra e suporte inicial para voc\u00ea come\u00e7ar a operar ou apresentar com seguran\u00e7a.",
+      cta: "Ver planos de MVP",
+      modalTitle: "Planos comerciais para desenvolvimento de MVP",
+      modalDescription:
+        "Pacotes pensados para tirar uma ideia do papel com velocidade, clareza de escopo e entrega completa.",
+      close: "Fechar",
+      supportBadge: "Suporte adicional dispon\u00edvel",
+      plans: [
+        {
+          name: "MVP Essencial",
+          price: "R$ 7.990",
+          description:
+            "Para validar uma ideia simples com 1 fluxo principal, at\u00e9 5 telas, banco, deploy, infra b\u00e1sica e c\u00f3digo-fonte entregue.",
+        },
+        {
+          name: "MVP Profissional",
+          price: "R$ 11.990",
+          description:
+            "Tudo do Essencial + autentica\u00e7\u00e3o, at\u00e9 8 telas, 2 fluxos principais, integra\u00e7\u00e3o simples, analytics b\u00e1sico e acabamento mais refinado.",
+        },
+        {
+          name: "MVP Premium",
+          price: "R$ 15.990 a R$ 19.990",
+          description:
+            "Tudo do Profissional + onboarding mais completo, permiss\u00f5es, integra\u00e7\u00f5es extras, estrutura mais robusta de opera\u00e7\u00e3o e handoff t\u00e9cnico.",
+        },
+      ],
+    },
     about: {
       eyebrow: "Sobre Mim",
       title: "Experi\u00eancia em software, arquitetura e produto.",
@@ -405,6 +438,39 @@ const localizedCopy = {
           price: "R$ 3.990 to R$ 5.500",
           description:
             "Everything in Professional plus strategic copy, conversion funnel, analytics, tests, more integrations, and post-launch support.",
+        },
+      ],
+    },
+    mvp: {
+      eyebrow: "MVP Express",
+      title:
+        "Need to validate an idea fast? I can build your web MVP in up to 5 business days.",
+      description:
+        "Lean scope, focus on what matters, and complete delivery: deployed product, source code, database, infrastructure, and initial support so you can launch or pitch with confidence.",
+      cta: "View MVP plans",
+      modalTitle: "Commercial plans for MVP development",
+      modalDescription:
+        "Packages designed to take an idea off the ground with speed, clear scope, and complete delivery.",
+      close: "Close",
+      supportBadge: "Additional support available",
+      plans: [
+        {
+          name: "Essential MVP",
+          price: "R$ 7.990",
+          description:
+            "To validate a simple idea with 1 main flow, up to 5 screens, database, deployment, basic infrastructure, and delivered source code.",
+        },
+        {
+          name: "Professional MVP",
+          price: "R$ 11.990",
+          description:
+            "Everything in Essential + authentication, up to 8 screens, 2 main flows, simple integration, basic analytics, and more polished finishing.",
+        },
+        {
+          name: "Premium MVP",
+          price: "R$ 15.990 to R$ 19.990",
+          description:
+            "Everything in Professional + richer onboarding, permissions, extra integrations, stronger operational setup, and technical handoff.",
         },
       ],
     },
@@ -489,6 +555,39 @@ const localizedCopy = {
           price: "R$ 3.990 a R$ 5.500",
           description:
             "Todo lo del profesional m\u00e1s copy estrat\u00e9gico, embudo de conversi\u00f3n, analytics, pruebas, m\u00e1s integraciones y soporte post-entrega.",
+        },
+      ],
+    },
+    mvp: {
+      eyebrow: "MVP Express",
+      title:
+        "\u00bfNecesitas validar una idea r\u00e1pido? Desarrollo tu MVP web en hasta 5 d\u00edas h\u00e1biles.",
+      description:
+        "Alcance enxuto, foco en lo esencial y entrega completa: producto publicado, c\u00f3digo fuente, base de datos, infraestructura y soporte inicial para lanzar o presentar con seguridad.",
+      cta: "Ver planes de MVP",
+      modalTitle: "Planes comerciales para desarrollo de MVP",
+      modalDescription:
+        "Paquetes pensados para sacar una idea del papel con velocidad, claridad de alcance y entrega completa.",
+      close: "Cerrar",
+      supportBadge: "Soporte adicional disponible",
+      plans: [
+        {
+          name: "MVP Esencial",
+          price: "R$ 7.990",
+          description:
+            "Para validar una idea simple con 1 flujo principal, hasta 5 pantallas, base de datos, deploy, infraestructura b\u00e1sica y entrega del c\u00f3digo fuente.",
+        },
+        {
+          name: "MVP Profesional",
+          price: "R$ 11.990",
+          description:
+            "Todo lo del Esencial + autenticaci\u00f3n, hasta 8 pantallas, 2 flujos principales, integraci\u00f3n simple, analytics b\u00e1sico y mejor acabado visual.",
+        },
+        {
+          name: "MVP Premium",
+          price: "R$ 15.990 a R$ 19.990",
+          description:
+            "Todo lo del Profesional + onboarding m\u00e1s completo, permisos, integraciones extra, estructura m\u00e1s robusta de operaci\u00f3n y handoff t\u00e9cnico.",
         },
       ],
     },
@@ -731,7 +830,9 @@ function TechnologyLogo({
 
 export default function Home() {
   const [languageOpen, setLanguageOpen] = useState(false);
-  const [plansModalOpen, setPlansModalOpen] = useState(false);
+  const [activeModal, setActiveModal] = useState<"landing" | "mvp" | null>(
+    null
+  );
   const [selectedLanguage, setSelectedLanguage] = useState<
     (typeof languages)[number]
   >(languages[0]);
@@ -758,20 +859,20 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (!plansModalOpen) {
+    if (!activeModal) {
       return undefined;
     }
 
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setPlansModalOpen(false);
+        setActiveModal(null);
       }
     };
 
     window.addEventListener("keydown", handleEscape);
 
     return () => window.removeEventListener("keydown", handleEscape);
-  }, [plansModalOpen]);
+  }, [activeModal]);
 
   return (
     <main className="page-shell min-h-screen px-3 py-4 text-white sm:px-5 sm:py-5">
@@ -1127,42 +1228,81 @@ export default function Home() {
           className="px-4 pb-4 sm:px-5 sm:pb-5"
           style={{ backgroundColor: stageSectionBackground }}
         >
-          <article
-            className="rounded-[18px] border border-[#24364f] px-5 py-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset]"
-            style={{ backgroundColor: stageSectionBackground }}
-          >
-            <div className="flex items-center gap-2">
-              <ProjectMark type="spark" />
-              <h2 className="display-font text-[18px] uppercase tracking-[0.12em] text-white">
-                {text.services.eyebrow}
-              </h2>
-            </div>
+          <div className="grid gap-3 lg:grid-cols-2">
+            <article
+              className="rounded-[18px] border border-[#24364f] px-5 py-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset]"
+              style={{ backgroundColor: stageSectionBackground }}
+            >
+              <div className="flex h-full flex-col">
+                <div className="flex items-center gap-2">
+                  <ProjectMark type="spark" />
+                  <h2 className="display-font text-[18px] uppercase tracking-[0.12em] text-white">
+                    {text.services.eyebrow}
+                  </h2>
+                </div>
 
-            <div className="mt-5 grid gap-5 md:grid-cols-[1.3fr_220px] md:items-end">
-              <div>
-                <p className="max-w-[520px] text-[19px] font-medium leading-[1.45] text-white">
-                  {text.services.title}
-                </p>
-                <p className="mt-4 max-w-[560px] text-[14px] leading-[1.7] text-white/72">
-                  {text.services.description}
-                </p>
+                <div className="mt-5 flex-1">
+                  <p className="max-w-[520px] text-[19px] font-medium leading-[1.45] text-white">
+                    {text.services.title}
+                  </p>
+                  <p className="mt-4 max-w-[560px] text-[14px] leading-[1.7] text-white/72">
+                    {text.services.description}
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    trackEvent("open_pricing_modal", {
+                      section: "landing_services",
+                      language: selectedLanguage.code,
+                    });
+                    setActiveModal("landing");
+                  }}
+                  className="mt-6 inline-flex items-center justify-center self-start rounded-[12px] border border-[#2c6d64] bg-[linear-gradient(180deg,rgba(14,37,40,0.98),rgba(9,19,23,0.98))] px-4 py-3 text-sm font-medium text-white transition hover:opacity-90"
+                >
+                  {text.services.cta}
+                </button>
               </div>
+            </article>
 
-              <button
-                type="button"
-                onClick={() => {
-                  trackEvent("open_pricing_modal", {
-                    section: "services",
-                    language: selectedLanguage.code,
-                  });
-                  setPlansModalOpen(true);
-                }}
-                className="inline-flex items-center justify-center rounded-[12px] border border-[#2c6d64] bg-[linear-gradient(180deg,rgba(14,37,40,0.98),rgba(9,19,23,0.98))] px-4 py-3 text-sm font-medium text-white transition hover:opacity-90"
-              >
-                {text.services.cta}
-              </button>
-            </div>
-          </article>
+            <article
+              className="rounded-[18px] border border-[#24364f] px-5 py-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset]"
+              style={{ backgroundColor: stageSectionBackground }}
+            >
+              <div className="flex h-full flex-col">
+                <div className="flex items-center gap-2">
+                  <ProjectMark type="spark" />
+                  <h2 className="display-font text-[18px] uppercase tracking-[0.12em] text-white">
+                    {text.mvp.eyebrow}
+                  </h2>
+                </div>
+
+                <div className="mt-5 flex-1">
+                  <p className="max-w-[520px] text-[19px] font-medium leading-[1.45] text-white">
+                    {text.mvp.title}
+                  </p>
+                  <p className="mt-4 max-w-[560px] text-[14px] leading-[1.7] text-white/72">
+                    {text.mvp.description}
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    trackEvent("open_pricing_modal", {
+                      section: "mvp_services",
+                      language: selectedLanguage.code,
+                    });
+                    setActiveModal("mvp");
+                  }}
+                  className="mt-6 inline-flex items-center justify-center self-start rounded-[12px] border border-[#2c4260] bg-[linear-gradient(180deg,rgba(16,27,49,0.98),rgba(8,14,28,0.98))] px-4 py-3 text-sm font-medium text-white transition hover:opacity-90"
+                >
+                  {text.mvp.cta}
+                </button>
+              </div>
+            </article>
+          </div>
         </section>
 
         <section
@@ -1310,15 +1450,17 @@ export default function Home() {
         </footer>
       </div>
 
-      {plansModalOpen ? (
+      {activeModal ? (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(2,6,16,0.82)] px-4 py-6 backdrop-blur-sm"
-          onClick={() => setPlansModalOpen(false)}
+          onClick={() => setActiveModal(null)}
         >
           <div
             role="dialog"
             aria-modal="true"
-            aria-labelledby="plans-modal-title"
+            aria-labelledby={
+              activeModal === "landing" ? "plans-modal-title" : "mvp-modal-title"
+            }
             className="w-full max-w-[860px] rounded-[24px] border border-[#24364f] bg-[linear-gradient(180deg,rgba(6,10,18,0.99),rgba(5,9,16,0.99))] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.48)] sm:p-6"
             onClick={(event) => event.stopPropagation()}
           >
@@ -1327,29 +1469,51 @@ export default function Home() {
                 <div className="flex items-center gap-2">
                   <ProjectMark type="spark" />
                   <h2
-                    id="plans-modal-title"
+                    id={
+                      activeModal === "landing"
+                        ? "plans-modal-title"
+                        : "mvp-modal-title"
+                    }
                     className="display-font text-[18px] uppercase tracking-[0.12em] text-white sm:text-[20px]"
                   >
-                    {text.services.modalTitle}
+                    {activeModal === "landing"
+                      ? text.services.modalTitle
+                      : text.mvp.modalTitle}
                   </h2>
                 </div>
                 <p className="mt-3 max-w-[620px] text-[14px] leading-[1.7] text-white/68">
-                  {text.services.modalDescription}
+                  {activeModal === "landing"
+                    ? text.services.modalDescription
+                    : text.mvp.modalDescription}
                 </p>
+                {activeModal === "mvp" ? (
+                  <div className="mt-4 inline-flex rounded-full border border-[#2c6d64] px-3 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-[#7ad7c8]">
+                    {text.mvp.supportBadge}
+                  </div>
+                ) : null}
               </div>
 
               <button
                 type="button"
-                onClick={() => setPlansModalOpen(false)}
+                onClick={() => setActiveModal(null)}
                 className="rounded-[10px] border border-[#2c4260] px-3 py-2 text-sm text-white/84 transition hover:text-white"
-                aria-label={text.services.close}
+                aria-label={
+                  activeModal === "landing"
+                    ? text.services.close
+                    : text.mvp.close
+                }
               >
-                {text.services.close}
+                {activeModal === "landing"
+                  ? text.services.close
+                  : text.mvp.close}
               </button>
             </div>
 
             <div className="mt-6 grid gap-4 lg:grid-cols-3">
-              {text.services.plans.map((plan, index) => (
+              {(activeModal === "landing"
+                ? text.services.plans
+                : text.mvp.plans
+              ).map((plan, index) => (
                 <article
                   key={plan.name}
                   className={`rounded-[18px] border p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset] ${
