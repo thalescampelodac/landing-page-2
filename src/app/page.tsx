@@ -308,18 +308,21 @@ const localizedCopy = {
         {
           name: "Pacote Essencial",
           price: "R$ 1.990",
+          usdPrice: "US$ 390",
           description:
             "Uma p\u00e1gina, responsiva, com se\u00e7\u00f5es institucionais, links, formul\u00e1rio simples e deploy.",
         },
         {
           name: "Pacote Profissional",
           price: "R$ 3.490",
+          usdPrice: "US$ 690",
           description:
             "Tudo do essencial + visual mais autoral, melhor acabamento, anima\u00e7\u00f5es leves, SEO b\u00e1sico, performance, integra\u00e7\u00e3o e revis\u00f5es.",
         },
         {
           name: "Pacote Premium",
           price: "R$ 3.990 a R$ 5.500",
+          usdPrice: "US$ 790 a US$ 1,090",
           description:
             "Tudo do profissional + copy estrat\u00e9gica, funil de convers\u00e3o, analytics, testes, mais integra\u00e7\u00f5es e suporte p\u00f3s-entrega.",
         },
@@ -341,18 +344,21 @@ const localizedCopy = {
         {
           name: "MVP Essencial",
           price: "R$ 7.990",
+          usdPrice: "US$ 1,490",
           description:
             "Para validar uma ideia simples com 1 fluxo principal, at\u00e9 5 telas, banco, deploy, infra b\u00e1sica e c\u00f3digo-fonte entregue.",
         },
         {
           name: "MVP Profissional",
           price: "R$ 11.990",
+          usdPrice: "US$ 2,190",
           description:
             "Tudo do Essencial + autentica\u00e7\u00e3o, at\u00e9 8 telas, 2 fluxos principais, integra\u00e7\u00e3o simples, analytics b\u00e1sico e acabamento mais refinado.",
         },
         {
           name: "MVP Premium",
           price: "R$ 15.990 a R$ 19.990",
+          usdPrice: "US$ 2,990 a US$ 3,690",
           description:
             "Tudo do Profissional + onboarding mais completo, permiss\u00f5es, integra\u00e7\u00f5es extras, estrutura mais robusta de opera\u00e7\u00e3o e handoff t\u00e9cnico.",
         },
@@ -424,18 +430,21 @@ const localizedCopy = {
         {
           name: "Essential Package",
           price: "R$ 1.990",
+          usdPrice: "US$ 390",
           description:
             "One responsive page with institutional sections, links, a simple form, and deployment.",
         },
         {
           name: "Professional Package",
           price: "R$ 3.490",
+          usdPrice: "US$ 690",
           description:
             "Everything in Essential plus more distinctive visuals, refined finish, light animations, basic SEO, performance work, integrations, and revisions.",
         },
         {
           name: "Premium Package",
           price: "R$ 3.990 to R$ 5.500",
+          usdPrice: "US$ 790 to US$ 1,090",
           description:
             "Everything in Professional plus strategic copy, conversion funnel, analytics, tests, more integrations, and post-launch support.",
         },
@@ -457,18 +466,21 @@ const localizedCopy = {
         {
           name: "Essential MVP",
           price: "R$ 7.990",
+          usdPrice: "US$ 1,490",
           description:
             "To validate a simple idea with 1 main flow, up to 5 screens, database, deployment, basic infrastructure, and delivered source code.",
         },
         {
           name: "Professional MVP",
           price: "R$ 11.990",
+          usdPrice: "US$ 2,190",
           description:
             "Everything in Essential + authentication, up to 8 screens, 2 main flows, simple integration, basic analytics, and more polished finishing.",
         },
         {
           name: "Premium MVP",
           price: "R$ 15.990 to R$ 19.990",
+          usdPrice: "US$ 2,990 to US$ 3,690",
           description:
             "Everything in Professional + richer onboarding, permissions, extra integrations, stronger operational setup, and technical handoff.",
         },
@@ -541,18 +553,21 @@ const localizedCopy = {
         {
           name: "Paquete Esencial",
           price: "R$ 1.990",
+          usdPrice: "US$ 390",
           description:
             "Una p\u00e1gina responsiva con secciones institucionales, enlaces, formulario simple y deploy.",
         },
         {
           name: "Paquete Profesional",
           price: "R$ 3.490",
+          usdPrice: "US$ 690",
           description:
             "Todo lo del esencial m\u00e1s un visual m\u00e1s autoral, mejor acabado, animaciones leves, SEO b\u00e1sico, performance, integraciones y revisiones.",
         },
         {
           name: "Paquete Premium",
           price: "R$ 3.990 a R$ 5.500",
+          usdPrice: "US$ 790 a US$ 1,090",
           description:
             "Todo lo del profesional m\u00e1s copy estrat\u00e9gico, embudo de conversi\u00f3n, analytics, pruebas, m\u00e1s integraciones y soporte post-entrega.",
         },
@@ -574,18 +589,21 @@ const localizedCopy = {
         {
           name: "MVP Esencial",
           price: "R$ 7.990",
+          usdPrice: "US$ 1,490",
           description:
             "Para validar una idea simple con 1 flujo principal, hasta 5 pantallas, base de datos, deploy, infraestructura b\u00e1sica y entrega del c\u00f3digo fuente.",
         },
         {
           name: "MVP Profesional",
           price: "R$ 11.990",
+          usdPrice: "US$ 2,190",
           description:
             "Todo lo del Esencial + autenticaci\u00f3n, hasta 8 pantallas, 2 flujos principales, integraci\u00f3n simple, analytics b\u00e1sico y mejor acabado visual.",
         },
         {
           name: "MVP Premium",
           price: "R$ 15.990 a R$ 19.990",
+          usdPrice: "US$ 2,990 a US$ 3,690",
           description:
             "Todo lo del Profesional + onboarding m\u00e1s completo, permisos, integraciones extra, estructura m\u00e1s robusta de operaci\u00f3n y handoff t\u00e9cnico.",
         },
@@ -1527,6 +1545,9 @@ export default function Home() {
                   </div>
                   <p className="mt-4 text-[28px] font-semibold leading-none text-white">
                     {plan.price}
+                  </p>
+                  <p className="mt-2 text-[12px] font-medium uppercase tracking-[0.14em] text-[#7fb1ff]">
+                    {plan.usdPrice}
                   </p>
                   <p className="mt-4 text-[14px] leading-[1.7] text-white/72">
                     {plan.description}
