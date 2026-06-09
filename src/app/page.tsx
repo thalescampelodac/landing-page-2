@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
+import { Bot, ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { trackEvent } from "./lib/gtm";
 
@@ -384,6 +384,8 @@ const localizedCopy = {
     projectItems: {
       comprovou:
         "Plataforma que simplifica a valida\u00e7\u00e3o de comprovantes, reduzindo fraudes e trazendo confian\u00e7a para transa\u00e7\u00f5es.",
+      petroagente:
+        "Agente inteligente para acompanhamento da PETR4, combinando dados de mercado, eventos e intelig\u00eancia artificial para gerar an\u00e1lises e cen\u00e1rios probabil\u00edsticos.",
       rede: "Plataforma colaborativa para conectar pessoas, compartilhar conhecimento e impulsionar redes.",
     },
   },
@@ -506,6 +508,8 @@ const localizedCopy = {
     projectItems: {
       comprovou:
         "A platform that simplifies receipt validation, reducing fraud and bringing trust to transactions.",
+      petroagente:
+        "An intelligent agent for tracking PETR4, combining market data, events, and artificial intelligence to generate analyses and probabilistic scenarios.",
       rede: "A collaborative platform to connect people, share knowledge, and strengthen networks.",
     },
   },
@@ -629,6 +633,8 @@ const localizedCopy = {
     projectItems: {
       comprovou:
         "Plataforma que simplifica la validaci\u00f3n de comprobantes, reduce fraudes y aporta confianza a las transacciones.",
+      petroagente:
+        "Agente inteligente para monitorear PETR4, combinando datos de mercado, eventos e inteligencia artificial para generar an\u00e1lisis y escenarios probabil\u00edsticos.",
       rede: "Plataforma colaborativa para conectar personas, compartir conocimiento e impulsar redes.",
     },
   },
@@ -711,6 +717,17 @@ const projects = [
     border: "border-[#2c4260]",
   },
   {
+    id: "petroagente",
+    name: "PETROAGENTE",
+    href: "https://petro-agent.vercel.app",
+    images: [
+      "/images/projects/PetroAgent/PetroAgent-1.png",
+      "/images/projects/PetroAgent/PetroAgent- 2.png",
+    ],
+    icon: "bot",
+    border: "border-[#3e6f4a]",
+  },
+  {
     id: "rede",
     name: "REDE",
     href: "https://rede-plataforma.vercel.app",
@@ -734,7 +751,7 @@ function FlagIcon({ flag, label }: { flag: string; label: string }) {
   );
 }
 
-function ProjectMark({ type }: { type: "check" | "loop" | "spark" }) {
+function ProjectMark({ type }: { type: "bot" | "check" | "loop" | "spark" }) {
   if (type === "check") {
     return (
       <svg
@@ -766,6 +783,16 @@ function ProjectMark({ type }: { type: "check" | "loop" | "spark" }) {
       >
         <path d="M7.5 8C4.5 8 3 10.1 3 12s1.5 4 4.5 4c3.9 0 5.1-8 9-8 3 0 4.5 2.1 4.5 4s-1.5 4-4.5 4c-3.9 0-5.1-8-9-8Z" />
       </svg>
+    );
+  }
+
+  if (type === "bot") {
+    return (
+      <Bot
+        className="h-7 w-7 text-[#7dd85f]"
+        strokeWidth={2.4}
+        aria-hidden="true"
+      />
     );
   }
 
@@ -856,6 +883,7 @@ export default function Home() {
   >(languages[0]);
   const [projectSlides, setProjectSlides] = useState<Record<string, number>>({
     comprovou: 0,
+    petroagente: 0,
     rede: 0,
   });
   const text = localizedCopy[selectedLanguage.code];
@@ -867,10 +895,16 @@ export default function Home() {
 
   useEffect(() => {
     const timer = window.setInterval(() => {
-      setProjectSlides((current) => ({
-        comprovou: (current.comprovou + 1) % 3,
-        rede: (current.rede + 1) % 3,
-      }));
+      setProjectSlides((current) => {
+        const nextSlides = { ...current };
+
+        projects.forEach((project) => {
+          nextSlides[project.id] =
+            ((current[project.id] ?? 0) + 1) % project.images.length;
+        });
+
+        return nextSlides;
+      });
     }, 3200);
 
     return () => window.clearInterval(timer);
@@ -1089,7 +1123,9 @@ export default function Home() {
                   <div>
                     <div className="flex items-center gap-2.5">
                       <ProjectMark
-                        type={project.icon as "check" | "loop" | "spark"}
+                        type={
+                          project.icon as "bot" | "check" | "loop" | "spark"
+                        }
                       />
                       <h3 className="display-font text-[20px] uppercase tracking-[0.02em] text-white">
                         {project.name}
