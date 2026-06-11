@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Bot, ChevronDown } from "lucide-react";
+import { Bot, ChevronDown, Radar } from "lucide-react";
 import { useEffect, useState } from "react";
 import { trackEvent } from "./lib/gtm";
 
@@ -155,6 +155,8 @@ const copy = {
       comprovou:
         "Plataforma que simplifica a validação de comprovantes, reduzindo fraudes e trazendo confiança para transações.",
       rede: "Plataforma colaborativa para conectar pessoas, compartilhar conhecimento e impulsionar redes.",
+      radar:
+        "Caso de estudo em Inteligência Artificial aplicada ao mercado financeiro, utilizando dados históricos e indicadores para interpretar cenários, classificar ações por potencial de oportunidade e identificar riscos de perda através de rankings automatizados.",
     },
   },
   EN: {
@@ -207,6 +209,8 @@ const copy = {
       comprovou:
         "A platform that simplifies receipt validation, reducing fraud and bringing trust to transactions.",
       rede: "A collaborative platform to connect people, share knowledge, and strengthen networks.",
+      radar:
+        "A case study in Artificial Intelligence applied to the financial market, using historical data and indicators to interpret scenarios, rank stocks by opportunity potential, and identify downside risks through automated rankings.",
     },
   },
   ES: {
@@ -259,6 +263,8 @@ const copy = {
       comprovou:
         "Plataforma que simplifica la validación de comprobantes, reduce fraudes y aporta confianza a las transacciones.",
       rede: "Plataforma colaborativa para conectar personas, compartir conocimiento e impulsar redes.",
+      radar:
+        "Caso de estudio en Inteligencia Artificial aplicada al mercado financiero, utilizando datos históricos e indicadores para interpretar escenarios, clasificar acciones por potencial de oportunidad e identificar riesgos de pérdida mediante rankings automatizados.",
     },
   },
 } as const;
@@ -387,6 +393,8 @@ const localizedCopy = {
       petroagente:
         "Agente inteligente para acompanhamento da PETR4, combinando dados de mercado, eventos e intelig\u00eancia artificial para gerar an\u00e1lises e cen\u00e1rios probabil\u00edsticos.",
       rede: "Plataforma colaborativa para conectar pessoas, compartilhar conhecimento e impulsionar redes.",
+      radar:
+        "Caso de estudo em Inteligência Artificial aplicada ao mercado financeiro, utilizando dados históricos e indicadores para interpretar cenários, classificar ações por potencial de oportunidade e identificar riscos de perda através de rankings automatizados.",
     },
   },
   EN: {
@@ -511,6 +519,8 @@ const localizedCopy = {
       petroagente:
         "An intelligent agent for tracking PETR4, combining market data, events, and artificial intelligence to generate analyses and probabilistic scenarios.",
       rede: "A collaborative platform to connect people, share knowledge, and strengthen networks.",
+      radar:
+        "A case study in Artificial Intelligence applied to the financial market, using historical data and indicators to interpret scenarios, rank stocks by opportunity potential, and identify downside risks through automated rankings.",
     },
   },
   ES: {
@@ -636,6 +646,8 @@ const localizedCopy = {
       petroagente:
         "Agente inteligente para monitorear PETR4, combinando datos de mercado, eventos e inteligencia artificial para generar an\u00e1lisis y escenarios probabil\u00edsticos.",
       rede: "Plataforma colaborativa para conectar personas, compartir conocimiento e impulsar redes.",
+      radar:
+        "Caso de estudio en Inteligencia Artificial aplicada al mercado financiero, utilizando datos hist\u00f3ricos e indicadores para interpretar escenarios, clasificar acciones por potencial de oportunidad e identificar riesgos de p\u00e9rdida mediante rankings automatizados.",
     },
   },
 } as const;
@@ -705,6 +717,28 @@ const technologies = [
 
 const projects = [
   {
+    id: "petroagente",
+    name: "PETROAGENT",
+    href: "https://petro-agent.vercel.app",
+    images: [
+      "/images/projects/PetroAgent/PetroAgent-1.png",
+      "/images/projects/PetroAgent/PetroAgent- 2.png",
+    ],
+    icon: "bot",
+    border: "border-[#3e6f4a]",
+  },
+  {
+    id: "radar",
+    name: "RADAR",
+    href: "https://radar-oportunidades-alertas.vercel.app",
+    images: [
+      "/images/projects/radar/radar-1.png",
+      "/images/projects/radar/radar-2.png",
+    ],
+    icon: "radar",
+    border: "border-[#3e6f4a]",
+  },
+  {
     id: "comprovou",
     name: "COMPROVOU",
     href: "https://comprovou.vercel.app",
@@ -715,17 +749,6 @@ const projects = [
     ],
     icon: "check",
     border: "border-[#2c4260]",
-  },
-  {
-    id: "petroagente",
-    name: "PETROAGENTE",
-    href: "https://petro-agent.vercel.app",
-    images: [
-      "/images/projects/PetroAgent/PetroAgent-1.png",
-      "/images/projects/PetroAgent/PetroAgent- 2.png",
-    ],
-    icon: "bot",
-    border: "border-[#3e6f4a]",
   },
   {
     id: "rede",
@@ -751,7 +774,11 @@ function FlagIcon({ flag, label }: { flag: string; label: string }) {
   );
 }
 
-function ProjectMark({ type }: { type: "bot" | "check" | "loop" | "spark" }) {
+function ProjectMark({
+  type,
+}: {
+  type: "bot" | "check" | "loop" | "radar" | "spark";
+}) {
   if (type === "check") {
     return (
       <svg
@@ -789,6 +816,16 @@ function ProjectMark({ type }: { type: "bot" | "check" | "loop" | "spark" }) {
   if (type === "bot") {
     return (
       <Bot
+        className="h-7 w-7 text-[#7dd85f]"
+        strokeWidth={2.4}
+        aria-hidden="true"
+      />
+    );
+  }
+
+  if (type === "radar") {
+    return (
+      <Radar
         className="h-7 w-7 text-[#7dd85f]"
         strokeWidth={2.4}
         aria-hidden="true"
@@ -885,6 +922,7 @@ export default function Home() {
     comprovou: 0,
     petroagente: 0,
     rede: 0,
+    radar: 0,
   });
   const text = localizedCopy[selectedLanguage.code];
   const cvByLanguage = {
@@ -1117,14 +1155,19 @@ export default function Home() {
               {projects.map((project) => (
                 <article
                   key={project.id}
-                  className={`grid gap-4 rounded-[16px] border ${project.border} p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.03)_inset]`}
+                  className={`flex h-full flex-col gap-4 rounded-[16px] border ${project.border} p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.03)_inset]`}
                   style={{ backgroundColor: stageSectionBackground }}
                 >
-                  <div>
+                  <div className="flex flex-1 flex-col">
                     <div className="flex items-center gap-2.5">
                       <ProjectMark
                         type={
-                          project.icon as "bot" | "check" | "loop" | "spark"
+                          project.icon as
+                            | "bot"
+                            | "check"
+                            | "loop"
+                            | "radar"
+                            | "spark"
                         }
                       />
                       <h3 className="display-font text-[20px] uppercase tracking-[0.02em] text-white">
@@ -1148,7 +1191,7 @@ export default function Home() {
                           language: selectedLanguage.code,
                         })
                       }
-                      className="mt-4 inline-flex items-center gap-2 text-[15px] text-[#58a6ff] transition hover:opacity-85"
+                      className="mt-auto inline-flex items-center gap-2 pt-4 text-[15px] text-[#58a6ff] transition hover:opacity-85"
                     >
                       <span>{text.projects.cta}</span>
                       <span aria-hidden="true">↗</span>
